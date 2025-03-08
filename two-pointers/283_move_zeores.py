@@ -15,3 +15,13 @@ Input: nums = [0]
 Output: [0]
 """
 
+nums = [0,1,0,3,12]
+def move_zeores(nums):
+    first, second = 0, 0
+    for first in range(len(nums)):
+        if (nums[first] != 0):
+            nums[first], nums[second] = nums[second], nums[first]
+            second +=1
+
+move_zeores(nums)
+print(nums)
