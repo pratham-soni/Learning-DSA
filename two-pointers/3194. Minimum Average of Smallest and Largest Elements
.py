@@ -24,15 +24,17 @@ nums = [7,8,3,4,15,13,4,1]
 
 class Solution:
     def minimumAverage(self, nums: List[int]) -> float:
-        left, right = 0, len(nums)-1
-        avg = float('inf')
+        # left, right = 0, len(nums)-1
+        # avg = float('inf')
+        # nums.sort()
+        # while left < right:
+        #     temp = (nums[left]+nums[right])/2
+        #     avg = temp if avg > temp else avg
+        #     left +=1
+        #     right -=1
+        # return avg
         nums.sort()
-        while left < right:
-            temp = (nums[left]+nums[right])/2
-            avg = temp if avg > temp else avg
-            left +=1
-            right -=1
-        return avg
+        return min((nums[i] + nums[~i]) / 2 for i in range(len(nums)//2))
     
 sol = Solution()
 print(sol.minimumAverage(nums))
